@@ -1,0 +1,378 @@
+/* Importação de uma fonte similar */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    /* Cores usadas na imagem */
+    --background-light: #f5f6fa;
+    --text-dark: #333;
+    --text-light: #fff;
+    --purple-main: #9d50ff;
+    --purple-light: #e6ccff;
+    --purple-dark: #741dff;
+    --card-bg: #fff;
+    --menu-icon-bg: #741dff;
+    --progress-track: #e0e0e0;
+    --progress-bar: #9d50ff;
+    --down-arrow-color: #ff4d4f; /* Vermelho para indicar perda */
+    --up-arrow-color: #4CAF50; /* Verde para indicar ganho (se necessário) */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background-light);
+    overflow: hidden; /* Para garantir que a onda de fundo não crie scroll */
+}
+
+.dashboard-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Largura total do dashboard */
+    min-height: 600px;
+    background-color: var(--background-light);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    overflow: hidden;
+}
+
+/* Onda de fundo (mais simples que a imagem exata, mas com efeito similar) */
+.background-wave {
+    position: absolute;
+    top: -150px; /* Ajuste para posicionar a onda */
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, var(--purple-light), var(--purple-main));
+    border-radius: 45% 55% 45% 55% / 40% 40% 60% 60%; /* Forma da onda */
+    transform: rotate(20deg); /* Inclina a onda */
+    z-index: 0;
+    opacity: 0.6;
+}
+
+
+/* --- Header --- */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1; /* Garante que o header fique acima da onda */
+}
+
+.menu-icon-wrapper {
+    background-color: var(--menu-icon-bg);
+    border-radius: 15px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.menu-icon {
+    color: var(--text-light);
+    font-size: 1.8em;
+}
+
+.greeting {
+    font-size: 2.2em;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.user-name {
+    color: var(--purple-dark);
+}
+
+/* --- Main Content Layout --- */
+.dashboard-main-content {
+    display: flex;
+    flex-grow: 1;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.left-column {
+    flex: 2; /* Ocupa mais espaço */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.right-column {
+    flex: 1; /* Ocupa menos espaço */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* --- Left Column Components --- */
+.main-objective-card {
+    background: linear-gradient(135deg, var(--purple-main), var(--purple-dark));
+    border-radius: 15px;
+    padding: 20px 30px;
+    text-align: center;
+    color: var(--text-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 80%; /* Ajuste a largura */
+    max-width: 400px;
+}
+
+.main-objective-card span {
+    font-size: 1em;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.main-objective-card p {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+/* Círculo de Progresso */
+.progress-circle-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.progress-ring-track,
+.progress-ring-bar {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.progress-ring-track {
+    stroke: var(--progress-track);
+}
+
+.progress-ring-bar {
+    stroke: var(--progress-bar);
+    transition: stroke-dashoffset 0.5s ease-out; /* Animação do progresso */
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.progress-text .percentage {
+    font-size: 2.5em;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+}
+
+.progress-text .status {
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+.access-training-button {
+    background: linear-gradient(135deg, var(--purple-main), var(--purple-dark));
+    color: var(--text-light);
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    width: 80%;
+    max-width: 300px;
+}
+
+.access-training-button:hover {
+    filter: brightness(1.1);
+}
+
+/* --- Right Column Components (Stat Cards) --- */
+.stat-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stat-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1em;
+    color: var(--text-medium);
+}
+
+.weight-change {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--down-arrow-color); /* Cor vermelha para indicar perda */
+    display: flex;
+    align-items: center;
+}
+
+.weight-change .down-arrow {
+    margin-right: 5px;
+    font-size: 0.9em;
+}
+
+/* Barra de Progresso de Calorias */
+.progress-bar-wrapper {
+    width: 100%;
+    height: 15px;
+    background-color: var(--progress-track);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--purple-main), var(--purple-dark));
+    border-radius: 10px;
+    transition: width 0.5s ease-out;
+}
+
+/* Placeholder do Gráfico */
+.chart-placeholder {
+    width: 100%;
+    height: 100px; /* Ajuste a altura conforme necessário */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Para uma imagem: */
+    /* background-color: #f0f0f0; 
+    border-radius: 8px; */
+}
+
+.evolution-chart {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Se você não tiver a imagem, pode fazer um "gráfico" com divs e flexbox aqui */
+    /* Exemplo para simular o gráfico de barras (descomente e remova a img tag): */
+    /*
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    */
+}
+/* Exemplo de estilos para divs de barra (se remover a imagem e usar divs) */
+/*
+.evolution-chart > div {
+    width: 15%;
+    background-color: var(--purple-main);
+    border-radius: 3px 3px 0 0;
+}
+.evolution-chart > div:nth-child(1) { height: 30%; }
+.evolution-chart > div:nth-child(2) { height: 70%; }
+.evolution-chart > div:nth-child(3) { height: 50%; }
+.evolution-chart > div:nth-child(4) { height: 90%; }
+.evolution-chart > div:nth-child(5) { height: 60%; }
+*/
+
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .dashboard-main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .left-column, .right-column {
+        width: 100%;
+        flex: none;
+    }
+    .main-objective-card, .access-training-button {
+        width: 90%;
+        max-width: none;
+    }
+    .dashboard-container {
+        padding: 20px;
+    }
+    .background-wave {
+        width: 400px;
+        height: 400px;
+        top: -100px;
+        right: -150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 30px;
+    }
+    .menu-icon-wrapper {
+        margin-bottom: 20px;
+    }
+    .greeting {
+        font-size: 1.8em;
+    }
+    .progress-circle-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+    .progress-circle .progress-ring {
+        width: 160px;
+        height: 160px;
+    }
+    .progress-circle .progress-ring circle {
+        r: 65px; /* Reduzir o raio do círculo */
+        cx: 80px;
+        cy: 80px;
+    }
+    /* Recalcular dasharray/offset para r=65px: 2*PI*65 = 408.4. Para 20%: 408.4 - (0.2 * 408.4) = 326.72 */
+    .progress-circle .progress-ring-bar {
+        stroke-dasharray: 408.4px; 
+        stroke-dashoffset: 326.72px;
+    }
+    .progress-text .percentage {
+        font-size: 2em;
+    }
+    .main-objective-card, .access-training-button {
+        width: 100%;
+    }
+}

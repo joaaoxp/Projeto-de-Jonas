@@ -1,0 +1,263 @@
+/* Importação de fonte e variáveis (Root) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    /* Cores */
+    --background-light: #a579df;
+    --text-dark: #333;
+    --text-medium: #555;
+    --text-light: #fff;
+    --purple-main: #9d50ff;
+    --purple-dark: #401068; /* Roxo escuro para a sidebar */
+    --sidebar-bg: var(--purple-dark);
+    --sidebar-nav-active: var(--purple-main);
+    --sidebar-text: #ddd;
+    --card-bg: #fff;
+    --button-gradient-start: #9d50ff;
+    --button-gradient-end: #741dff;
+    --logout-red: #e74c3c;
+    --logout-red-dark: #c0392b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-light);
+    min-height: 100vh;
+    overflow: hidden; 
+}
+
+/* --- Layout Principal (Sidebar + Conteúdo) --- */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* === SIDEBAR ESTILOS (Reutilizando o anterior) === */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+}
+.logo-area { padding: 0 40px 40px; }
+.logo-box {
+    background: linear-gradient(135deg, var(--purple-main), var(--purple-dark));
+    color: var(--text-light);
+    font-size: 1.8em;
+    font-weight: 700;
+    text-align: center;
+    padding: 15px;
+    border-radius: 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+}
+.main-nav { flex-grow: 1; padding-left: 0; }
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 18px 40px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.nav-item i { margin-right: 15px; font-size: 1.3em; }
+.nav-item.active {
+    background-color: var(--sidebar-nav-active);
+    color: var(--text-light);
+}
+.profile-area { padding-bottom: 30px; }
+.profile-link { font-size: 1.2em; padding: 20px 40px; }
+
+
+/* === CONTEÚDO PRINCIPAL (PERFIL) ESTILOS === */
+.profile-content {
+    flex-grow: 1;
+    padding: 40px 60px;
+    display: flex;
+    gap: 80px;
+    background-color: var(--background-light);
+}
+
+/* Coluna Esquerda: Dados Pessoais */
+.user-details-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-right: 30px;
+    border-right: 1px solid #ddd; /* Linha divisória sutil */
+}
+
+.profile-picture-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: var(--purple-light); /* Cor roxa clara para o círculo */
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.user-name {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.user-email {
+    font-size: 1em;
+    color: var(--text-medium);
+    margin-bottom: 25px;
+}
+
+.edit-profile-button {
+    background: none;
+    color: var(--purple-main);
+    border: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 40px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.current-meta-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.current-meta-card h2 {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.current-meta-card p {
+    font-size: 1em;
+    color: var(--text-medium);
+    line-height: 1.6;
+}
+
+.edit-more-button {
+    background: linear-gradient(135deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: var(--text-light);
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Coluna Direita: Configurações */
+.settings-column {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.settings-title {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.setting-button {
+    background: linear-gradient(90deg, var(--purple-main), var(--purple-light));
+    color: var(--text-light);
+    border-radius: 15px;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.setting-button:hover {
+    transform: translateY(-2px);
+}
+
+.setting-button i {
+    margin-right: 15px;
+    font-size: 1.3em;
+}
+
+.arrow-icon {
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.logout-button {
+    background-color: var(--logout-red);
+    color: var(--text-light);
+    border: none;
+    border-radius: 15px;
+    padding: 20px 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: var(--logout-red-dark);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .sidebar { width: 80px; }
+    .nav-item { justify-content: center; }
+    .nav-item i { margin-right: 0; }
+    
+    .profile-content {
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px;
+    }
+    .user-details-column {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 30px;
+        padding-right: 0;
+    }
+    .current-meta-card {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .settings-title { font-size: 1.5em; }
+    .setting-button { font-size: 1em; padding: 12px 20px; }
+    .logout-button { font-size: 1.2em; padding: 15px 20px; }
+}

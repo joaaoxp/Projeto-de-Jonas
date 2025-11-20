@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário Alimentar - FIT</title>
+    <link rel="stylesheet" href="diarioalimentar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-layout">
+
+        <style>
+            /* ----- Barra de rolagem personalizada ----- */
+
+            body {
+                overflow-y: scroll;
+            }
+
+            /* Largura da barra */
+            body::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            /* Fundo da barra */
+            body::-webkit-scrollbar-track {
+                background: #e4e4e4;
+                border-radius: 50px;
+            }
+
+            /* Parte que se move */
+            body::-webkit-scrollbar-thumb {
+                background: #8b3fff;
+                border-radius: 50px;
+            }
+
+            /* Hover */
+            body::-webkit-scrollbar-thumb:hover {
+                background: #6a1be7;
+            }
+        </style>
+
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-box">FIT</div>
+            </div>
+            
+            <nav class="main-nav">
+                <a class="nav-item" onclick="IrParaHome()">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <script>
+                    function IrParaHome() {
+                        window.location.href = "homeprincipal.html";
+                    }
+                </script>
+                
+                <a class="nav-item" onclick="IrParaTreino()">
+                    <i class="fas fa-dumbbell"></i> Treinos
+                </a>
+                <script>
+                    function IrParaTreino() {
+                        window.location.href = "treinodehoje.html";
+                    }
+                </script>
+
+                <a class="nav-item active" onclick="IrParaNutri()">
+                    <i class="fas fa-utensils"></i> Nutrição
+                </a>
+                <script>
+                    function IrParaNutri() {
+                        window.location.href = "diarioalimentar.html";
+                    }
+                </script>
+            </nav>
+            
+            <div class="profile-area" onclick="IrParaPerfil()">
+                <a class="nav-item profile-link">
+                    <i class="fas fa-user-circle"></i> Perfil
+                </a>
+                <script>
+                    function IrParaPerfil() {
+                        window.location.href = "perfil.html";
+                    }
+                </script>
+            </div>
+        </aside>
+
+        <main class="nutrition-content">
+            
+            <header class="nutrition-header">
+                <h1 class="nutrition-title">Diário Alimentar</h1>
+                <p class="nutrition-meta">Meta Diária <strong>2.300 kcal</strong></p>
+            </header>
+            
+            <section class="action-bar">
+                <button class="add-meal-button">Adicionar Refeição</button>
+            </section>
+
+            <p class="current-date">Hoje, 8 de Novembro de 2025</p>
+
+            <section class="meals-grid">
+                
+                <div class="meal-card">
+                    <h2 class="meal-time">Café da manhã</h2>
+                    <p class="meal-description">Pão de forma com atum</p>
+                    <span class="meal-calories">(250 kcal)</span>
+                </div>
+
+                <div class="meal-card">
+                    <h2 class="meal-time">Almoço</h2>
+                    <p class="meal-description">Salada fit com frango grelhado</p>
+                    <span class="meal-calories">(355 kcal)</span>
+                </div>
+
+                <div class="meal-card">
+                    <h2 class="meal-time">Lanche da tarde</h2>
+                    <p class="meal-description">Crepioca com queijo e atum</p>
+                    <span class="meal-calories">(276 kcal)</span>
+                </div>
+
+                <div class="meal-card">
+                    <h2 class="meal-time">Janta</h2>
+                    <p class="meal-description">Omelete com Espinafre e Tomate</p>
+                    <span class="meal-calories">(412 kcal)</span>
+                </div>
+
+            </section>
+
+            <footer class="consumption-summary">
+                <h2 class="summary-title">Total consumido: <strong>1.500 kcal</strong></h2>
+                <div class="progress-wrapper">
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 65.2%;"></div>
+                    </div>
+                </div>
+            </footer>
+            
+        </main>
+
+    </div>
+         <script src="diarioalimentar.js"></script>
+
+</body>
+</html>

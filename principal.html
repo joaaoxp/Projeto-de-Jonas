@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Usuário</title>
+    <link rel="stylesheet" href="principal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="background-wave"></div>
+
+        <header class="dashboard-header">
+            <div class="menu-icon-wrapper">
+                <i class="fas fa-bars menu-icon"></i>
+            </div>
+            <h1 class="greeting">Olá! <span class="user-name">(nome do usuário)</span></h1>
+        </header>
+
+        <main class="dashboard-main-content">
+            <div class="left-column">
+                <div class="main-objective-card">
+                    <span>Objetivo principal:</span>
+                    <p>Ganho de massa muscular</p>
+                </div>
+
+                <div class="progress-circle-wrapper">
+                    <div class="progress-circle">
+                        <svg class="progress-ring" width="200" height="200">
+                            <circle class="progress-ring-track" stroke="#e0e0e0" stroke-width="12" fill="transparent" r="80" cx="100" cy="100"/>
+                            <circle class="progress-ring-bar" stroke="#9d50ff" stroke-width="12" fill="transparent" r="80" cx="100" cy="100" style="stroke-dasharray: 502.4px; stroke-dashoffset: 401.92px;"/>
+                            </svg>
+                        <div class="progress-text">
+                            <span class="percentage">20%</span>
+                            <span class="status">concluído</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="access-training-button">Acessar treino de hoje</button>
+            </div>
+
+            <div class="right-column">
+                <div class="stat-card">
+                    <h3 class="stat-title">Estatística de peso</h3>
+                    <p class="stat-value">Peso atual: 75 kg</p>
+                    <div class="weight-change">
+                        <i class="fas fa-arrow-down down-arrow"></i> 0,5 kg
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <h3 class="stat-title">Calorias consumidas</h3>
+                    <p class="stat-value">1.500 / 2.300 kcal</p>
+                    <div class="progress-bar-wrapper">
+                        <div class="progress-bar" style="width: 65%;"></div>
+                        </div>
+                </div>
+
+                <div class="stat-card">
+                    <h3 class="stat-title">Evolução semanal</h3>
+                    <div class="chart-placeholder">
+                        <img src="chart-placeholder.png" alt="Gráfico de Evolução Semanal" class="evolution-chart">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

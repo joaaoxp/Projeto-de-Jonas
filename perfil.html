@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil e Configurações - FIT</title>
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-layout">
+        
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-box">FIT</div>
+            </div>
+             
+            <nav class="main-nav">
+                <a href="#" class="nav-item">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-dumbbell"></i> Treinos
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-utensils"></i> Nutrição
+                </a>
+            </nav>
+            
+            <div class="profile-area">
+                <a href="#" class="nav-item active profile-link">
+                    <i class="fas fa-user-circle"></i> Perfil
+                </a>
+            </div>
+        </aside>
+
+        <main class="profile-content">
+            
+            <section class="user-details-column">
+                <div class="profile-picture-placeholder"></div>
+                <h1 class="user-name">SEU NOME</h1>
+                <p class="user-email">seuemail@gmail.com</p>
+
+                <button class="edit-profile-button">Editar Perfil</button>
+                
+                <div class="current-meta-card">
+                    <h2>Meta Atual</h2>
+                    <p>Calorias Diárias: **2300 kcal**</p>
+                    <p>Peso Objetivo: **65 kg**</p>
+                </div>
+
+                <button class="edit-more-button">Editar Mais</button>
+            </section>
+
+            <section class="settings-column">
+                <h2 class="settings-title">Configurações da Conta</h2>
+                
+                <div class="settings-list">
+                    <a href="#" class="setting-button">
+                        <i class="fas fa-cog"></i> Configurações Gerais <span class="arrow-icon">></span>
+                    </a>
+                    <a href="#" class="setting-button">
+                        <i class="fas fa-user"></i> Dados Pessoais <span class="arrow-icon">></span>
+                    </a>
+                    <a href="#" class="setting-button">
+                        <i class="fas fa-chart-line"></i> Histórico de Peso <span class="arrow-icon">></span>
+                    </a>
+                    <a href="#" class="setting-button">
+                        <i class="fas fa-bell"></i> Notificação <span class="arrow-icon">></span>
+                    </a>
+                    <a href="#" class="setting-button">
+                        <i class="fas fa-lock"></i> Segurança <span class="arrow-icon">></span>
+                    </a>
+                </div>
+
+                <button class="logout-button">Sair da Conta</button>
+            </section>
+            
+        </main>
+    </div>
+</body>
+</html>

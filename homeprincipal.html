@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Completo FIT</title>
+    <link rel="stylesheet" href="homeprincipal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+        
+<body>
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-box">FIT</div>
+            </div>
+
+            <nav class="main-nav">
+                <a class="nav-item active" onclick="IrParaHome()">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <script>
+                    function IrParaHome() {
+                        window.location.href = "homeprincipal.html";
+                    }
+                </script>
+                <a class="nav-item" onclick="IrParaTreino()">
+                    <i class="fas fa-dumbbell"></i> Treinos
+                </a>
+                <script>
+                    function IrParaTreino() {
+                        window.location.href = "treinodehoje.html";
+                    }
+                </script>
+                <a class="nav-item" onclick="IrParaNutri()">
+                    <i class="fas fa-utensils"></i> Nutrição
+                </a>
+                <script>
+                    function IrParaNutri() {
+                        window.location.href = "diarioalimentar.html";
+                    }
+                </script>
+            </nav>
+
+            <div class="profile-area" onclick="IrParaPerfil()">
+                <a class="nav-item profile-link">
+                    <i class="fas fa-user-circle"></i> Perfil
+                </a>
+                <script>
+                    function IrParaPerfil() {
+                        window.location.href = "perfil.html";
+                    }
+                </script>
+            </div>
+        </aside>
+
+        <main class="dashboard-content">
+            <div class="background-wave"></div>
+
+            <header class="dashboard-header">
+                <h1 class="greeting">Olá! <span class="user-name">(nome do usuário)</span></h1>
+            </header>
+
+            <section class="dashboard-main-area">
+                <div class="left-column">
+                    <div class="main-objective-card">
+                        <span>Objetivo principal:</span>
+                        <p>Ganho de massa muscular</p>
+                    </div>
+
+                    <div class="progress-circle-wrapper">
+                        <div class="progress-circle">
+                            <svg class="progress-ring" width="200" height="200">
+                                <circle class="progress-ring-track" stroke="#e0e0e0" stroke-width="12"
+                                    fill="transparent" r="80" cx="100" cy="100" />
+                                <circle class="progress-ring-bar" stroke="#9d50ff" stroke-width="12" fill="transparent"
+                                    r="80" cx="100" cy="100"
+                                    style="stroke-dasharray: 502.4px; stroke-dashoffset: 401.92px;" />
+                            </svg>
+                            <div class="progress-text">
+                                <span class="percentage">20%</span>
+                                <span class="status">concluído</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="access-training-button" onclick="IrParaTreino()">Acessar treino de hoje</button>
+                    <script>
+                        function IrParaTreino() {
+                            window.location.href = "treinodehoje.html";
+                        }
+                    </script>
+                </div>
+
+                <div class="right-column">
+                    <div class="stat-card">
+                        <h3 class="stat-title">Estatística de peso</h3>
+                        <p class="stat-value">Peso atual: 75 kg</p>
+                        <div class="weight-change">
+                            <i class="fas fa-arrow-down down-arrow"></i> 0,5 kg
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3 class="stat-title">Calorias consumidas</h3>
+                        <p class="stat-value">1.500 / 2.300 kcal</p>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar" style="width: 65%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3 class="stat-title">Evolução semanal</h3>
+                        <div class="chart-placeholder">
+                            <div class="bar-chart-container">
+                                <div class="bar" style="height: 30%;"></div>
+                                <div class="bar" style="height: 70%;"></div>
+                                <div class="bar" style="height: 50%;"></div>
+                                <div class="bar" style="height: 90%;"></div>
+                                <div class="bar" style="height: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

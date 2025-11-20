@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definição de Objetivo</title>
+    <link rel="stylesheet" href="objetivo.css"> </head>
+<body>
+    <div class="objective-container">
+        <div class="top-curve-background"></div>
+
+        <div class="objective-content">
+            <div class="selectors-area">
+                <div class="selection-group">
+                    <h2 class="selection-title">Selecione sua opção:</h2>
+                    <div class="custom-select-wrapper">
+                        <select id="option-select" class="hidden-select">
+                            <option value="perder-peso">Perder peso</option>
+                            <option value="ganhar-peso">Ganhar peso</option>
+                        </select>
+                        <div class="custom-select-display">
+                            <span>perder peso</span>
+                            <span class="dropdown-icon">
+                                &#9660;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selection-group">
+                    <h2 class="selection-title">Selecione sua meta:</h2>
+                    <div class="custom-select-wrapper">
+                        <select id="goal-select" class="hidden-select">
+                            <option value="1-2">1 a 2 meses</option>
+                            <option value="3-4">3 a 4 meses</option>
+                            <option value="5-6">5 a 6 meses</option>
+                        </select>
+                        <div class="custom-select-display">
+                            <span>1 a 2 meses</span>
+                            <span class="dropdown-icon">
+                                &#9660;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description-area">
+                <h1 class="objective-title">Objetivo</h1>
+                <p class="objective-description">
+                    Nos diga qual o seu foco, se quer ganhar peso ou perder, e defina
+                    em quantos meses quer atingir seu objetivo.
+                </p>
+                <button class="finish-button" onclick="irParaPrincipal()">concluir</button>
+                <script>
+                        function irParaPrincipal() {
+                            window.location.href =  "paginaprincipal.html";
+                        }
+                    </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

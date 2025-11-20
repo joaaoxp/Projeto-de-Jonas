@@ -1,0 +1,59 @@
+/* Importação de uma fonte similar */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    /* Cores e fontes usadas */
+    --background-light: #f5f6fa; /* Cor de fundo bem clara */
+    --text-dark: #333;
+    --text-medium: #555;
+    --purple-link: #6a1a9a; /* Um tom de roxo escuro para o link */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background-light);
+}
+
+.confirmation-container {
+    text-align: center;
+    max-width: 500px;
+    padding: 40px 20px;
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+}
+
+.description {
+    font-size: 1.1em;
+    color: var(--text-medium);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.main-page-link {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--purple-link); /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+
+.main-page-link:hover {
+    color: var(--text-dark); /* Escurece no hover */
+    text-decoration: underline; /* Adiciona sublinhado no hover */
+}

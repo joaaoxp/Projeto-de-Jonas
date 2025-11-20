@@ -1,0 +1,185 @@
+/* Importação de uma fonte similar ao da imagem (Opcional) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    /* Definição de cores e tamanhos para fácil ajuste */
+    --purple-light: #e0b0ff;
+    --purple-medium: #a879f9;
+    --purple-dark: #6a1a9a;
+    --button-gradient-start: #9d50ff;
+    --button-gradient-end: #741dff;
+    --text-dark: #333;
+    --text-light: #fff;
+    --input-bg: #fff;
+    --unit-bg: #f5f5f5;
+    --unit-color: #5d5d5d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; /* Cor de fundo da página */
+}
+
+.initial-evaluation-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Limita a largura do contêiner principal */
+    min-height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Fundo Gradiente */
+.background-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Recria o gradiente de roxo claro para roxo escuro */
+    background: linear-gradient(180deg, var(--purple-light) 0%, var(--purple-medium) 30%, var(--purple-dark) 100%);
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    padding: 40px 60px;
+    color: var(--text-light); /* Texto em branco sobre o fundo roxo */
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-dark); /* Título em roxo escuro ou preto */
+}
+
+.description {
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    color: var(--text-dark); /* Descrição em roxo escuro ou preto */
+}
+
+.prompt-text {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.input-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinha os itens na parte de baixo */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 1; /* Permite que o grupo de inputs ocupe espaço */
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    background: var(--input-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px; /* Ajuste para o tamanho dos campos */
+    height: 60px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-field label {
+    font-weight: 600;
+    padding: 0 15px;
+    color: var(--text-dark);
+    text-transform: lowercase;
+}
+
+.input-field input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-size: 1.2em;
+    color: var(--text-dark);
+    height: 100%;
+    width: 100%;
+    text-align: right;
+}
+
+.input-field .unit {
+    background: var(--unit-bg);
+    color: var(--unit-color);
+    font-weight: 600;
+    padding: 0 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    min-width: 60px;
+}
+
+.next-button {
+    background: linear-gradient(135deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: var(--text-light);
+    border: none;
+    border-radius: 15px;
+    padding: 20px 40px;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-transform: lowercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-left: 30px; /* Espaçamento entre os campos e o botão */
+    height: 140px; /* Altura para alinhar com os dois inputs */
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.next-button:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsividade básica para telas menores */
+@media (max-width: 600px) {
+    .content {
+        padding: 30px 20px;
+    }
+    .input-form {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .input-field {
+        width: 100%;
+    }
+    .next-button {
+        width: 100%;
+        height: 70px;
+        margin-left: 0;
+        font-size: 1.5em;
+    }
+}

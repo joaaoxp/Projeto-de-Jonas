@@ -1,0 +1,221 @@
+/* Importação de fonte e variáveis (Root) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    /* Cores */
+    --background-light: #f5f6fa;
+    --text-dark: #333;
+    --text-medium: #555;
+    --text-light: #fff;
+    --purple-main: #9d50ff;
+    --purple-dark: #401068; /* Roxo escuro para a sidebar */
+    --sidebar-bg: var(--purple-dark);
+    --sidebar-nav-active: var(--purple-main);
+    --sidebar-text: #ddd;
+    --card-bg: #fff;
+    --check-color: #6a1a9a; /* Roxo escuro para o ícone de check */
+    --pending-icon-color: #9d50ff; /* Roxo principal para ícone pendente */
+    --progress-bar-track: #e0e0e0;
+    --progress-bar-fill: var(--purple-main);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-light);
+    min-height: 100vh;
+    overflow: hidden; 
+}
+
+/* --- Layout Principal (Sidebar + Conteúdo) --- */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* === SIDEBAR ESTILOS (Reutilizando o anterior) === */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.logo-area { padding: 0 40px 40px; }
+
+.logo-box {
+    background: linear-gradient(135deg, var(--purple-main), var(--purple-dark));
+    color: var(--text-light);
+    font-size: 1.8em;
+    font-weight: 700;
+    text-align: center;
+    padding: 15px;
+    border-radius: 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+}
+
+.main-nav { flex-grow: 1; padding-left: 0; }
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 18px 40px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-item i { margin-right: 15px; font-size: 1.3em; }
+
+.nav-item.active {
+    background-color: var(--sidebar-nav-active);
+    color: var(--text-light);
+}
+
+.profile-area { padding-bottom: 30px; }
+
+.profile-link { font-size: 1.2em; padding: 20px 40px; }
+
+/* === CONTEÚDO PRINCIPAL (TREINO) ESTILOS === */
+.training-content {
+    flex-grow: 1;
+    padding: 40px 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.training-header {
+    margin-bottom: 30px;
+}
+
+.training-title {
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.training-subtitle {
+    font-size: 1em;
+    color: var(--text-medium);
+    margin-top: 5px;
+}
+
+/* Lista de Exercícios */
+.exercise-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 100px; /* Espaço para a barra de progresso lateral */
+}
+
+.exercise-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+/* Estilo para card concluído */
+.exercise-card.completed {
+    background-color: var(--purple-light); /* Fundo um pouco mais claro */
+}
+
+.exercise-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.exercise-name {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.exercise-details {
+    font-size: 0.9em;
+    color: var(--text-medium);
+}
+
+.completion-icon {
+    font-size: 2.2em;
+}
+
+/* Ícone de Check (Concluído) */
+.exercise-card.completed .completion-icon {
+    color: var(--check-color);
+}
+
+/* Ícone de Círculo (Pendente) */
+.exercise-card.pending .completion-icon {
+    color: var(--pending-icon-color);
+}
+
+/* Card Vazio */
+.exercise-card.empty-card {
+    min-height: 80px;
+    box-shadow: none;
+    background-color: transparent;
+    border: 2px dashed #e0e0e0;
+}
+
+.exercise-card.empty-card .completion-icon {
+    display: none;
+}
+
+/* Barra de Progresso Vertical (Lateral) */
+.vertical-progress-bar {
+    position: absolute;
+    top: 100px; /* Alinhar com o topo da lista */
+    right: 40px;
+    width: 15px;
+    height: calc(100% - 140px); /* Ajuste a altura total da lista - margens */
+    background-color: var(--progress-bar-track);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 100%;
+    /* Altura definida no HTML (ex: 30%) */
+    background: linear-gradient(0deg, var(--purple-main), var(--purple-light));
+    position: absolute;
+    bottom: 0;
+    transition: height 0.5s ease;
+    border-radius: 10px;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .sidebar { width: 80px; }
+    .nav-item { justify-content: center; }
+    .nav-item i { margin-right: 0; }
+    
+    .training-content { padding: 20px; }
+    .exercise-list { padding-right: 20px; } /* Remove o espaço extra para a barra */
+    .vertical-progress-bar {
+        display: none; /* Oculta a barra vertical em telas menores */
+    }
+}
+
+@media (max-width: 576px) {
+    .training-title { font-size: 1.5em; }
+    .exercise-name { font-size: 1.1em; }
+    .completion-icon { font-size: 1.8em; }
+}

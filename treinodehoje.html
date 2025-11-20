@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino de Hoje - FIT</title>
+    <link rel="stylesheet" href="treinodehoje.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+
+        /* ----- Barra de rolagem personalizada ----- */
+body {
+    overflow-y: scroll;
+}
+
+/* Largura da barra */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Fundo da barra */
+body::-webkit-scrollbar-track {
+    background: #e4e4e4;
+    border-radius: 50px;
+}
+
+/* Cor do indicador que se move */
+body::-webkit-scrollbar-thumb {
+    background: #8b3fff;
+    border-radius: 50px;
+}
+
+/* Efeito ao passar o mouse */
+body::-webkit-scrollbar-thumb:hover {
+    background: #6a1be7;
+}
+
+
+        /* ----- Ajuste para o rodapé fixo na esquerda ----- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* empurra o perfil para baixo */
+            height: 100vh;
+        }
+
+        /* ----- Estilização para o comportamento dinâmico ----- */
+        .exercise-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 18px 22px;
+            border-radius: 14px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .exercise-card:hover {
+            transform: scale(1.01);
+        }
+
+        .exercise-card.completed i {
+            color: #8b3fff;
+        }
+
+        .exercise-card.pending i {
+            color: #8b3fff;
+        }
+
+        .exercise-card.completed .completion-icon i {
+            content: "\f00c"; /* FA CHECK */
+        }
+
+        /* ----- RODAPÉ DO MEIO (CONTINUE O TREINO) ----- */
+        .footer-box {
+            margin-top: 25px;
+            background: #ffffff;
+            padding: 18px;
+            text-align: center;
+            border-radius: 15px;
+            font-size: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .footer-box:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-layout">
+        
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-box">FIT</div>
+            </div>
+            
+            <nav class="main-nav">
+                <a class="nav-item" onclick="IrParaHome()">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <script>
+                    function IrParaHome() {
+                        window.location.href = "homeprincipal.html";
+                    }
+                </script>
+
+                <a class="nav-item active" onclick="IrParaTreino()">
+                    <i class="fas fa-dumbbell"></i> Treinos
+                </a>
+                <script>
+                    function IrParaTreino() {
+                        window.location.href = "treinodehoje.html";
+                    }
+                </script>
+
+                <a class="nav-item" onclick="IrParaNutri()">
+                    <i class="fas fa-utensils"></i> Nutrição
+                </a>
+                <script>
+                    function IrParaNutri() {
+                        window.location.href = "diarioalimentar.html";
+                    }
+                </script>
+            </nav>
+            
+            <!-- RODAPÉ FIXO DO LADO ESQUERDO -->
+            <div class="profile-area">
+                <a class="nav-item profile-link" onclick="IrParaPerfil()">
+                    <i class="fas fa-user-circle"></i> Perfil
+                </a>
+                <script>
+                    function IrParaPerfil() {
+                        window.location.href = "perfil.html";
+                    }
+                </script>
+            </div>
+        </aside>
+
+        <main class="training-content">
+            
+            <header class="training-header">
+                <h1 class="training-title">Treino de hoje</h1>
+                <p class="training-subtitle">Descanso de 1 min entre as séries</p>
+            </header>
+
+            <section class="exercise-list">
+
+                <!-- EXERCÍCIOS FUNCIONAIS -->
+                <div class="exercise-card completed" onclick="toggleExercise(this)">
+                    <div class="exercise-info">
+                        <span class="exercise-name">Agachamento livre</span>
+                        <span class="exercise-details">3 séries – 12 repetições</span>
+                    </div>
+                    <div class="completion-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </div>
+
+                <div class="exercise-card pending" onclick="toggleExercise(this)">
+                    <div class="exercise-info">
+                        <span class="exercise-name">Cadeira extensora</span>
+                        <span class="exercise-details">3 séries – 12 repetições</span>
+                    </div>
+                    <div class="completion-icon">
+                        <i class="far fa-circle"></i>
+                    </div>
+                </div>
+
+                <div class="exercise-card pending" onclick="toggleExercise(this)">
+                    <div class="exercise-info">
+                        <span class="exercise-name">Leg press</span>
+                        <span class="exercise-details">3 séries – 12 repetições</span>
+                    </div>
+                    <div class="completion-icon">
+                        <i class="far fa-circle"></i>
+                    </div>
+                </div>
+
+                <div class="exercise-card pending" onclick="toggleExercise(this)">
+                    <div class="exercise-info">
+                        <span class="exercise-name">Pernas</span>
+                        <span class="exercise-details">3 séries – 12 repetições</span>
+                    </div>
+                    <div class="completion-icon">
+                        <i class="far fa-circle"></i>
+                    </div>
+                </div>
+
+                <div class="exercise-card pending" onclick="toggleExercise(this)">
+                    <div class="exercise-info">
+                        <span class="exercise-name">Abdômen</span>
+                        <span class="exercise-details">3 séries – 12 repetições</span>
+                    </div>
+                    <div class="completion-icon">
+                        <i class="far fa-circle"></i>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ===== RODAPÉ QUE VOCÊ PEDIU ===== -->
+            <div class="footer-box" onclick="alert('Continuando treino...')">
+                Continue o treino 💪
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ======== SCRIPT DO FUNCIONAMENTO DINÂMICO ======== -->
+    <script>
+        function toggleExercise(card) {
+
+            // Se já está concluído → volta para pendente
+            if (card.classList.contains("completed")) {
+                card.classList.remove("completed");
+                card.classList.add("pending");
+                card.querySelector(".completion-icon").innerHTML = '<i class="far fa-circle"></i>';
+                return;
+            }
+
+            // Se está pendente → vira concluído
+            card.classList.remove("pending");
+            card.classList.add("completed");
+            card.querySelector(".completion-icon").innerHTML = '<i class="fas fa-check"></i>';
+        }
+    </script>
+
+</body>
+</html>
