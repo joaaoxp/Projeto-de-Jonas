@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - FIT</title>
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-logo">FIT</div>
+
+            <nav class="sidebar-menu">
+                <a href="homeprincipal.html" class="item">
+                    <i class="fas fa-home"></i> Home
+                </a>
+
+                <a href="treinodehoje.html" class="item">
+                    <i class="fas fa-dumbbell"></i> Treinos
+                </a>
+
+                <a href="nutrição.html" class="item">
+                    <i class="fas fa-utensils"></i> Nutrição
+                </a>
+
+                <a class="item active">
+                    <i class="fas fa-user-circle"></i> Perfil
+                </a>
+            </nav>
+        </aside>
+
+        <main class="content">
+
+            <section class="col-left">
+
+                <div class="profile-pic" id="fotoPerfil"></div>
+
+                <h1 class="user-name" id="userName">Seu Nome</h1>
+                <p class="user-email" id="userEmail">seuemail@gmail.com</p>
+
+                <button class="edit-btn">Editar Perfil</button>
+
+                <div class="card-meta">
+                    <h2>Meta Atual</h2>
+                    <p>Calorias Diárias: <strong id="metaCalorias">2300 kcal</strong></p>
+                    <p>Peso Objetivo: <strong id="pesoObjetivo">65 kg</strong></p>
+                </div>
+
+          
+            </section>
+
+            <section class="col-right">
+
+                <h2 class="title">Configurações da Conta</h2>
+
+                <div class="settings-list">
+
+                    <a href="dados.html" class="setting-item">
+                        <i class="fas fa-user"></i> Dados Pessoais
+                        <span class="arrow">></span>
+                    </a>
+
+                    <a class="setting-item">
+                        <i class="fas fa-chart-line"></i> Histórico de Peso
+                        <span class="arrow">></span>
+                    </a>
+
+                    <a href="seguranca.html" class="setting-item">
+                        <i class="fas fa-lock"></i> Segurança
+                        <span class="arrow">></span>
+                    </a>
+
+                </div>
+
+                <button class="logout-btn" onclick="Sair()">Sair da Conta</button>
+                    <script>
+                        function Sair() {
+                            window.location.href = "sairdaconta.html";
+                        }
+                    </script>
+            </section>
+
+        </main>
+    </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const nome = localStorage.getItem("nomeUsuario");
+    const email = localStorage.getItem("emailUsuario");
+    const pesoAtual = localStorage.getItem("pesoUsuario");
+    const pesoObjetivo = localStorage.getItem("pesoObjetivoUsuario");
+    const metaCalorias = localStorage.getItem("metaCalorias");
+    const foto = localStorage.getItem("fotoUsuario");
+
+    if (nome) {
+        document.getElementById("userName").textContent = nome;
+    }
+
+    if (email) {
+        document.getElementById("userEmail").textContent = email;
+    }
+
+    if (metaCalorias) {
+        document.getElementById("metaCalorias").textContent = metaCalorias + " kcal";
+    }
+
+    if (pesoObjetivo) {
+        document.getElementById("pesoObjetivo").textContent = pesoObjetivo + " kg";
+    }
+
+    if (foto) {
+        document.getElementById("fotoPerfil").style.backgroundImage = `url(${foto})`;
+        document.getElementById("fotoPerfil").style.backgroundSize = "cover";
+        document.getElementById("fotoPerfil").style.backgroundPosition = "center";
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <img src="logoFIT.jpg" class="logo" alt="Logo FIT">
+
+        <h2 class="titulo">Por favor, inserir seus dados</h2>
+
+        <form id="loginForm" class="form">
+            <input type="email" id="email" placeholder="Email para acesso" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+
+            <a href="#" class="esqueceu">esqueceu a senha?</a>
+
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const senha = document.getElementById("senha").value.trim();
+
+            if (email !== "" && senha !== "") {
+                window.location.href = "seuperfil.html";
+            } else {
+                alert("Por favor, preencha todos os campos.");
+            }
+        });
+    </script>
+
+</body>
+</html>

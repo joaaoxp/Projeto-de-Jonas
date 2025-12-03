@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+
+    --bg-light: #eff0f3;
+    --bg-gradient: linear-gradient(135deg, #a579df, #eff0f3);
+
+    --purple-main: #9d50ff;
+    --purple-dark: #5b1ca1;
+    --purple-light: #d8c6ff;
+
+    --text-dark: #222;
+    --text-medium: #555;
+    --text-light: #fff;
+
+    --card-bg: #fff;
+
+    --btn-start: #9d50ff;
+    --btn-end: #741dff;
+
+    --danger: #e74c3c;
+    --danger-dark: #c0392b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: var(--purple-dark);
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-shadow: 6px 0 18px rgba(0,0,0,0.15);
+}
+
+.sidebar-logo {
+    background: linear-gradient(135deg, var(--purple-main), var(--purple-dark));
+    color: var(--text-light);
+    font-size: 2rem;
+    font-weight: 700;
+    width: 120px;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 0 auto;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .item {
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #ddd;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.sidebar .item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar .item.active {
+    background: var(--purple-main);
+    color: var(--text-light);
+}
+.content {
+    flex: 1;
+    display: flex;
+    padding: 40px 60px;
+    gap: 80px;
+}
+
+.col-left {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid #ddd;
+    padding-right: 40px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    background: var(--purple-light);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.user-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.user-email {
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-bottom: 25px;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+    color: var(--purple-main);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 35px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.card-meta {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    width: 260px;
+    margin: 0 auto 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-meta h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.edit-more-btn {
+    background: linear-gradient(135deg, var(--btn-start), var(--btn-end));
+    color: var(--text-light);
+    padding: 12px 28px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+.col-right {
+    flex: 1.5;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.setting-item {
+    background: linear-gradient(90deg, var(--purple-main), var(--purple-light));
+    color: var(--text-light);
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    transition: 0.2s;
+}
+
+.setting-item:hover {
+    transform: translateY(-2px);
+}
+
+.arrow {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.logout-btn {
+    margin-top: 30px;
+    background: var(--danger);
+    color: var(--text-light);
+    padding: 18px 30px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.logout-btn:hover {
+    background: var(--danger-dark);
+}
+
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+        gap: 40px;
+        padding: 30px;
+    }
+
+    .col-left {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 30px;
+    }
+}

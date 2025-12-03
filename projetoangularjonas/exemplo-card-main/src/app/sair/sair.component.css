@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    margin: 80px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 12px #00000030;
+    text-align: center;
+}
+
+h1 {
+    color: #5A2EDA;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.cancel {
+    background: #cfcfcf;
+    color: #333;
+}
+
+.cancel:hover {
+    background: #b5b5b5;
+}
+
+.exit {
+    background: #e63946;
+    color: white;
+}
+
+.exit:hover {
+    background: #c62834;
+}

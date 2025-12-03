@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #eff0f3;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    text-align: left;
+}
+
+.top-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    width: 110px;
+}
+
+.titulo {
+    margin-left: 60px;
+    font-size: 42px;
+    font-weight: 900;
+    color: #2b2048;
+}
+
+.descricao {
+    margin-top: 25px;
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 700px;
+    color: #37304d;
+}
+
+.login-area {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-login {
+    padding: 15px 40px;
+    background: #9d53ff;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn-login:hover {
+    background: #8a45f0;
+}
+
+.texto-login {
+    font-size: 18px;
+    color: #494163;
+}

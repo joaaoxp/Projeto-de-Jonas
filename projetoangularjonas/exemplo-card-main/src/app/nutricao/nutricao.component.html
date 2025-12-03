@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário Alimentar - FIT</title>
+    <link rel="stylesheet" href="nutrição.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <style>
+        body { overflow-y: scroll; }
+        body::-webkit-scrollbar { width: 10px; }
+        body::-webkit-scrollbar-track { background: #e4e4e4; border-radius: 50px; }
+        body::-webkit-scrollbar-thumb { background: #8b3fff; border-radius: 50px; }
+        body::-webkit-scrollbar-thumb:hover { background: #6a1be7; }
+    </style>
+
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-box">FIT</div>
+        </div>
+        
+        <nav class="main-nav">
+            <a class="nav-item" onclick="IrParaHome()">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <script>function IrParaHome(){ window.location.href='homeprincipal.html'; }</script>
+            
+            <a class="nav-item" onclick="IrParaTreino()">
+                <i class="fas fa-dumbbell"></i> Treinos
+            </a>
+            <script>function IrParaTreino(){ window.location.href='treinodehoje.html'; }</script>
+
+            <a class="nav-item active" onclick="IrParaNutri()">
+                <i class="fas fa-utensils"></i> Nutrição
+            </a>
+            <script>function IrParaNutri(){ window.location.href='nutrição.html'; }</script>
+        </nav>
+
+        <div class="profile-area" onclick="IrParaPerfil()">
+            <a class="nav-item profile-link">
+                <i class="fas fa-user-circle"></i> Perfil
+            </a>
+        </div>
+        <script>function IrParaPerfil(){ window.location.href='perfil.html'; }</script>
+    </aside>
+
+    <main class="nutrition-content">
+
+        <header class="nutrition-header">
+            <h1 class="nutrition-title">Diário Alimentar</h1>
+            <p class="nutrition-meta">Meta Diária: <strong id="metaValor">2300 kcal</strong></p>
+        </header>
+
+        <section class="action-bar">
+            <button class="add-meal-button" onclick="abrirPopup()">Adicionar Refeição</button>
+        </section>
+
+        <p class="current-date">Hoje, 8 de Novembro de 2025</p>
+
+        <section class="meals-grid">
+            <div class="meal-card">
+                <h2 class="meal-time">Café da manhã</h2>
+                <p class="meal-description">Pão de forma com atum</p>
+                <span class="meal-calories">(250 kcal)</span>
+            </div>
+
+            <div class="meal-card">
+                <h2 class="meal-time">Almoço</h2>
+                <p class="meal-description">Salada fit com frango grelhado</p>
+                <span class="meal-calories">(355 kcal)</span>
+            </div>
+
+            <div class="meal-card">
+                <h2 class="meal-time">Lanche da tarde</h2>
+                <p class="meal-description">Crepioca com queijo e atum</p>
+                <span class="meal-calories">(276 kcal)</span>
+            </div>
+
+            <div class="meal-card">
+                <h2 class="meal-time">Janta</h2>
+                <p class="meal-description">Omelete com espinafre</p>
+                <span class="meal-calories">(412 kcal)</span>
+            </div>
+        </section>
+
+        <footer class="consumption-summary">
+            <h2 class="summary-title">Total consumido: <strong id="totalKcal">0 kcal</strong></h2>
+            <div class="progress-wrapper">
+                <div class="progress-track">
+                    <div class="progress-fill" id="barraProgresso" style="width: 0%;"></div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+</div>
+
+<style>
+    #popupOverlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.45);
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    #popupBox {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        width: 300px;
+        text-align: center;
+    }
+
+    #popupBox h2 {
+        margin-bottom: 15px;
+    }
+
+    .refeicao-btn {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 10px;
+        background: #9d50ff;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .refeicao-btn:hover {
+        filter: brightness(1.15);
+    }
+</style>
+
+<div id="popupOverlay">
+    <div id="popupBox">
+        <h2>Qual refeição?</h2>
+        <button class="refeicao-btn" onclick="registrarRefeicao(0)">Café da manhã</button>
+        <button class="refeicao-btn" onclick="registrarRefeicao(1)">Almoço</button>
+        <button class="refeicao-btn" onclick="registrarRefeicao(2)">Lanche da tarde</button>
+        <button class="refeicao-btn" onclick="registrarRefeicao(3)">Janta</button>
+        <br><br>
+        <button class="refeicao-btn" style="background:#444" onclick="fecharPopup()">Cancelar</button>
+    </div>
+</div>
+
+<script>
+
+const objetivo = localStorage.getItem("objetivo") || "manter";
+
+const refeicoesBase = [
+    { nome: "Café da manhã", calorias: 250 },
+    { nome: "Almoço", calorias: 355 },
+    { nome: "Lanche da tarde", calorias: 276 },
+    { nome: "Janta", calorias: 412 }
+];
+
+let multiplicador = 1;
+if (objetivo === "perder") multiplicador = 0.8;
+if (objetivo === "ganhar") multiplicador = 1.2;
+
+refeicoesBase.forEach(r => r.caloriasAjustadas = Math.round(r.calorias * multiplicador));
+
+let totalConsumido = 0;
+
+document.getElementById("totalKcal").textContent = totalConsumido + " kcal";
+
+const meta = 2300;
+document.getElementById("metaValor").textContent = `${meta} kcal`;
+
+function abrirPopup() {
+    document.getElementById("popupOverlay").style.display = "flex";
+}
+
+function fecharPopup() {
+    document.getElementById("popupOverlay").style.display = "none";
+}
+
+function registrarRefeicao(indice) {
+
+    const kcal = refeicoesBase[indice].caloriasAjustadas;
+
+    totalConsumido += kcal;
+
+    document.getElementById("totalKcal").textContent = totalConsumido + " kcal";
+
+    const porcentagem = (totalConsumido / meta) * 100;
+    document.getElementById("barraProgresso").style.width = `${porcentagem}%`;
+
+    fecharPopup();
+}
+
+</script>
+
+</body>
+</html>

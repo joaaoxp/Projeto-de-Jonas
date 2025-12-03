@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Inicial</title>
+    <link rel="stylesheet" href="avaliacaoinicial.css">
+</head>
+<body>
+    <div class="content">
+        <h1 class="title">Avaliação Inicial</h1>
+
+        <p class="description">
+            Informe seu peso e altura para calcularmos sua faixa ideal e
+            montar recomendações personalizadas.
+        </p>
+
+        <h2 class="prompt-text">Informe seu peso e altura:</h2>
+
+        <form class="input-form">
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="peso">peso</label>
+                    <input type="number" id="peso" name="peso">
+                    <span class="unit">kg</span>
+                </div>
+
+                <div class="input-field">
+                    <label for="altura">altura</label>
+                    <input type="number" id="altura" name="altura">
+                    <span class="unit">cm</span>
+                </div>
+            </div>
+
+            <button type="button" class="next-button" onclick="salvarEAbrir()">
+                próximo
+            </button>
+        </form>
+    </div>
+
+    <script>
+        function salvarEAbrir() {
+            const peso = document.getElementById("peso").value;
+            const altura = document.getElementById("altura").value;
+
+            if (!peso || !altura) {
+                alert("Preencha peso e altura antes de continuar!");
+                return;
+            }
+
+            localStorage.setItem("pesoUsuario", peso);
+            localStorage.setItem("alturaUsuario", altura);
+
+            window.location.href = "objetivo.html";
+        }
+    </script>
+</body>
+</html>
